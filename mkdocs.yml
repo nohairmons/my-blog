@@ -2,14 +2,62 @@ site_name: 我的个人博客
 theme:
   name: material
   language: zh
+  # ======= 网页功能特性 =======
   features:
-    - navigation.tabs
-    - navigation.sections
-    - navigation.top
-    - content.code.copy
-    - blog
+    - navigation.tabs        # 顶级分类导航
+    - navigation.sections    # 侧边栏子分类折叠
+    - navigation.top         # 返回顶部按钮
+    - content.code.copy      # 代码块一键复制按钮
+    - search.suggest         # 搜索输入提示
+    - search.highlight       # 搜索结果高亮
+    - header.autohide        # 页面向下滚动时自动隐藏顶栏
+  # ======= 配色与夜间模式 =======
+  palette:
+    # 明亮模式 (日间)
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo      # 主色调 (如: indigo, blue, teal, black, white 等)
+      accent: pink         # 强调色
+      toggle:
+        icon: material/brightness-7
+        name: 切换到深色模式
+    # 暗黑模式 (夜间)
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black       # 深色模式主色调
+      accent: pink
+      toggle:
+        icon: material/brightness-4
+        name: 切换到浅色模式
+  # ======= 字体与图标 =======
+  font:
+    text: Roboto
+    code: Roboto Mono
+  icon:
+    logo: logo
+
+# ======= 额外 Markdown 扩展 (Markdown美化) =======
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.details            # 允许使用详情折叠框 (??? note "提示")
+  - pymdownx.tasklist:          # 允许使用任务列表 (- [x])
+      custom_checkbox: true
+  - pymdownx.arithmatex:        # 公式渲染支持
+      generic: true
+
+# ======= 外部脚本 =======
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
 
 plugins:
   - blog
-  - search
+  - search:                     # 开启强大的中文搜索支持
+      lang: zh
 
