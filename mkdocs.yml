@@ -1,0 +1,15 @@
+site_name: 我的个人博客
+theme:
+  name: material
+  language: zh
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+    - blog
+
+plugins:
+  - blog
+  - search
+
